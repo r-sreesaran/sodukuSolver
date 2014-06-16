@@ -162,7 +162,7 @@ public class SodukuSolver {
             }
 
         }
-        //checks if there are any repetion in the row or the column
+        //checks if there are any repetion in the row and the column
          for (int i = 0; i < maximiumRangeSoduku; i++) {
        Set rowChecker= new HashSet();
         Set columnChecker= new HashSet();

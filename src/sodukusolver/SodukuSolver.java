@@ -162,6 +162,35 @@ public class SodukuSolver {
             }
 
         }
+        //checks if there are any repetion in the row or the column
+         for (int i = 0; i < maximiumRangeSoduku; i++) {
+       Set rowChecker= new HashSet();
+        Set columnChecker= new HashSet();
+                for (int j = 0; j < maximiumRangeSoduku; j++) {
+                    rowChecker.add(soduku[i][j]);
+                    columnChecker.add(soduku[j][i]);
+                    if (j == maximiumRangeSoduku - 1) {
+                        if (rowChecker.size() != maximiumRangeSoduku  && columnChecker.size() != maximiumRangeSoduku ) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            //checks if there is any repetetion in the 3*3 grid
+             for (int row = 0; row < maximiumRangeSoduku; row += maximiumRangeGrid) {
+            for (int column = 0; column < maximiumRangeSoduku; column += maximiumRangeGrid) {
+                 Set GridChecker = new HashSet();
+                for (int i = row; i < row + maximiumRangeGrid; i++) {
+                for (int j = column; j < column + maximiumRangeGrid; j++) {
+              
+               GridChecker.add(soduku[i][j]);
+               if(i==row+maximiumRangeGrid -1 && j==column+maximiumRangeGrid-1 && GridChecker.size()!=maximiumRangeSoduku)
+               {
+                   return false;
+               }}
+            }
+        }
+        }
         return true;
     }
 
